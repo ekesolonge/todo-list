@@ -2,16 +2,16 @@ import _ from "lodash";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import * as taskService from "../../services/tasks";
+import { ListBody, ListItem, ListButton } from "./TodoListStyles";
 import {
   Body,
   Container,
   Wrapper,
   Title,
   PrimaryButton,
-  ListBody,
-  ListItem,
-  Button,
-} from "./TodoListStyles";
+} from "../GlobalStyles";
+import Button from "../common/Button";
+import Input from "./../common/Input";
 
 function TodoList(props) {
   const [input, setInput] = useState("");
@@ -37,7 +37,7 @@ function TodoList(props) {
     if (!input) return toast.error("Please fill input!");
 
     const task = {
-      name: document.getElementById("taskInput").value,
+      name: input,
     };
 
     try {
@@ -111,13 +111,7 @@ function TodoList(props) {
       <Container>
         <Wrapper>
           <div className="d-flex align-items-center justify-content-end">
-            <PrimaryButton
-              className="btn btn-primary"
-              type="button"
-              onClick={handleLogout}
-            >
-              Logout
-            </PrimaryButton>
+            <Button type="button" value="Logout" onClick={handleLogout} />
           </div>
           <Title>TODO LIST</Title>
           <ListBody>
@@ -134,7 +128,7 @@ function TodoList(props) {
                 {_.isEmpty(edit) && (
                   <div className="input-group-append">
                     <PrimaryButton className="btn btn-primary" type="submit">
-                      New Task
+                      Add Task
                     </PrimaryButton>
                   </div>
                 )}
@@ -168,12 +162,12 @@ function TodoList(props) {
                   <ListItem className="list-group-item" key={item._id}>
                     {item.name}
                     <div>
-                      <Button onClick={() => editTask(item)}>
+                      <ListButton onClick={() => editTask(item)}>
                         <i className="fa fa-pencil" aria-hidden="true"></i>
-                      </Button>
-                      <Button delete onClick={() => deleteTask(item)}>
+                      </ListButton>
+                      <ListButton delete onClick={() => deleteTask(item)}>
                         <i className="fa fa-times" aria-hidden="true"></i>
-                      </Button>
+                      </ListButton>
                     </div>
                   </ListItem>
                 ))}

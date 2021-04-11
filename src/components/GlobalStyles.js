@@ -46,12 +46,12 @@ export const PrimaryButton = styled.button`
   }
 `;
 
-export const Error = styled.div`
+export const FormError = styled.div`
   background: #ffc0cb8a;
   text-align: center;
   padding: 0.5rem 0;
 `;
 
-export const ErrorMessage = styled.p`
+export const FormErrorMessage = styled.p`
   color: maroon;
 `;

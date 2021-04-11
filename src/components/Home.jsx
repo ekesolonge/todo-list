@@ -35,7 +35,10 @@ class Home extends Form {
       <Body>
         <Container>
           <Wrapper>
-            <Title>Create a New Account</Title>
+            <Title>
+              WELCOME TO MY TODO LIST APP <br /> <br />
+              Register to use
+            </Title>
             <form onSubmit={this.handleSubmit}>
               <div className="d-flex align-content-center justify-content-end">
                 <small className="m-0">

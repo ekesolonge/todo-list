@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import TodoList from "./components/TodoList/TodoList";
+import ProtectedRoute from "./components/common/protectedRoute";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 function App() {
@@ -11,7 +12,7 @@ function App() {
     <React.Fragment>
       <ToastContainer />
       <Switch>
-        <Route path="/todolist" component={TodoList} />
+        <ProtectedRoute path="/todolist" component={TodoList} />
         <Route path="/login" component={Login} />
         <Route path="/" exact component={Home} />
       </Switch>

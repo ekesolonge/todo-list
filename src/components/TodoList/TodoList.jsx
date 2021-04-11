@@ -11,7 +11,7 @@ import {
   PrimaryButton,
 } from "../GlobalStyles";
 import Button from "../common/Button";
-import Input from "./../common/Input";
+import { getCurrentUser } from "../../services/auth";
 
 function TodoList(props) {
   const [input, setInput] = useState("");
@@ -113,7 +113,7 @@ function TodoList(props) {
           <div className="d-flex align-items-center justify-content-end">
             <Button type="button" value="Logout" onClick={handleLogout} />
           </div>
-          <Title>TODO LIST</Title>
+          <Title>{getCurrentUser().username}'s todo list </Title>
           <ListBody>
             <div>
               <form className="input-group mb-3" onSubmit={addTask}>

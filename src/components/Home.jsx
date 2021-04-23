@@ -52,6 +52,7 @@ class Home extends Form {
                 </FormError>
               )}
               {this.renderInput("username", "Username")}
+              {this.renderInput("email", "Email","email")}
               {this.renderInput("password", "Password", "password")}
               {this.renderInput("rememberMe", "Remember Me", "checkbox")}
               {this.renderButton("submit", "Sign Up")}

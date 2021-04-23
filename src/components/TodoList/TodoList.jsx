@@ -12,11 +12,13 @@ import {
 } from "../GlobalStyles";
 import Button from "../common/Button";
 import { getCurrentUser } from "../../services/auth";
+import ajaxLoader from "../../images/ajax-loader.gif";
 
 function TodoList(props) {
   const [input, setInput] = useState("");
   const [list, setList] = useState([]);
   const [edit, setEdit] = useState({});
+  const [loading, isLoading] = useState(false);
 
   useEffect(() => {
     const fetchTasks = async () => {
@@ -40,6 +42,8 @@ function TodoList(props) {
       name: input,
     };
 
+    isLoading(true);
+
     try {
       const { data } = await taskService.createTask(task);
       delete data.__v;
@@ -47,8 +51,10 @@ function TodoList(props) {
       setList(newList);
       setInput("");
       toast.success("Task added successfully");
+      isLoading(false);
     } catch (error) {
       if (error.response) toast.error(error.response.data);
+      isLoading(false);
     }
   };
 
@@ -128,7 +134,11 @@ function TodoList(props) {
                 {_.isEmpty(edit) && (
                   <div className="input-group-append">
                     <PrimaryButton className="btn btn-primary" type="submit">
-                      Add Task
+                      {loading ? (
+                        <img src={ajaxLoader} alt="loader" />
+                      ) : (
+                        "Add Task"
+                      )}
                     </PrimaryButton>
                   </div>
                 )}

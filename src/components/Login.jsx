@@ -48,7 +48,7 @@ class Login extends Form {
                   <FormErrorMessage className="m-0">{error}</FormErrorMessage>
                 </FormError>
               )}
-              {this.renderInput("username", "Username")}
+              {this.renderInput("username", "Username/Email Address")}
               {this.renderInput("password", "Password", "password")}
               {this.renderInput("rememberMe", "Remember Me", "checkbox")}
               {this.renderButton("submit", "Login")}

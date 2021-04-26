@@ -13,7 +13,12 @@ function Input({ label, type, value, ...rest }) {
   return (
     <div className="form-group">
       <label>{label}</label>
-      <input {...rest} className="form-control" type={type} value={value || ""} />
+      <input
+        {...rest}
+        className="form-control"
+        type={type}
+        value={value || ""}
+      />
     </div>
   );
 }

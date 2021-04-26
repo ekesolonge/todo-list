@@ -50,7 +50,14 @@ class Login extends Form {
               )}
               {this.renderInput("username", "Username/Email Address")}
               {this.renderInput("password", "Password", "password")}
-              {this.renderInput("rememberMe", "Remember Me", "checkbox")}
+              <div className="d-flex justify-content-between align-items-center m-2">
+                <div>
+                  <input type="checkbox" name="rememberMe" className="pr-5" />
+                  <label className="pl-2">Remember Me</label>
+                </div>
+
+                <Link to="/forgotPassword">Forgot Password?</Link>
+              </div>
               {this.renderButton("submit", "Login")}
             </form>
           </Wrapper>

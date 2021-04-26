@@ -6,6 +6,7 @@ class Form extends Component {
   state = {
     data: {},
     error: "",
+    loading: false,
   };
 
   handleChange = ({ currentTarget: input }) => {
@@ -27,7 +28,7 @@ class Form extends Component {
   };
 
   renderButton = (type, value) => {
-    return <Button type={type} value={value} />;
+    return <Button type={type} value={value} loading={this.state.loading} />;
   };
 
   handleSubmit = e => {

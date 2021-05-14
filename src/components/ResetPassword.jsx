@@ -43,10 +43,11 @@ class ResetPassword extends Form {
           window.location = "/login";
         }, 3000);
       } catch (error) {
-        if (error.response) this.setState({ error: error.response.data });
+        if (error.response)
+          this.setState({ error: error.response.data, loading: false });
       }
     } else {
-      this.setState({ error: "Passwords must match" });
+      this.setState({ error: "Passwords must match", loading: false });
     }
   };
 

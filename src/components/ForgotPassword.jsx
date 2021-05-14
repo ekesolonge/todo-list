@@ -18,9 +18,13 @@ class ForgotPassword extends Form {
   };
 
   doSubmit = async () => {
-    const email = this.state.data;
+    const values = {
+      ...this.state.data,
+      clientUrl: process.env.REACT_APP_CLIENT_URL,
+    };
+
     try {
-      const { data } = await http.post("/users/resetPassword", email);
+      const { data } = await http.post("/users/resetPassword", values);
       this.setState({ error: "" });
       toast.success(data);
     } catch (error) {
